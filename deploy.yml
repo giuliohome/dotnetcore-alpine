@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-deployment
+  labels:
+    app: cloud
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cloud
+  template:
+    metadata:
+      labels:
+        app: cloud
+    spec:
+      containers:
+      - name: cloud
+        image: giuliohome/fsharpcloud:v1.1.1   
+        imagePullPolicy: Never
+        command: ["/bin/sh", "-c"]
+        args:
+          - echo starting;
+            dotnet --list-runtimes;
+            echo done;
+            while true; do sleep 30; done;
+        ports:
+        - containerPort: 80
