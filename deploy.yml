@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: cloud
-        image: giuliohome/fsharpcloud:v1.1.1   
+        image: giuliohome/fsharpcloud:v1.2.0
         imagePullPolicy: Never
         command: ["/bin/sh", "-c"]
         args:
           - echo starting;
             dotnet --list-runtimes;
-            echo done;
-            while true; do sleep 30; done;
+            cd bin;
+            dotnet ./MinApi.dll; 
         ports:
-        - containerPort: 80
+        - containerPort: 5000
