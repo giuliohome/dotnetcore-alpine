@@ -6,10 +6,14 @@
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "..",
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-		"dockerfile": "../Dockerfile"
+		// "dockerfile": "../Dockerfile"
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
+	    "kubectl-helm-minikube": {
+		"version": "latest",
+		"helm": "latest",
+		"minikube": "latest"
+	    }
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
